@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Quanity Counter</title>
+    <style>
+        body{
+            background-color: rgb(244, 206, 214);
+        }
+       .container{
+        width: 500px;
+        border: 4px solid rgb(90, 1, 71);
+        display: flex;
+        margin: 20px auto;
+        padding: 10px;
+        box-shadow: 7px 7px 5px rgb(77, 77, 77) ;
+       }
+       .product-container
+        {
+            text-align: center;
+            background-color: rgb(245, 74, 199);
+        }
+        .count-img   
+       {
+        width: 50px;
+       }
+       .count-img:hover
+       {
+        width: 60px;
+       }
+       .product-img{
+        width: 380px;
+        height: 420px;
+        text-align: center;
+        margin: 10px 60px;
+       }
+       h2{
+        text-align: center;
+        color: black;
+        font-style: italic;
+       }
+       h3{
+        text-align: center;
+        color: rgb(2, 0, 0);
+        font-style: italic;
+       }
+       .product-counter
+       {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       }
+       .buy-btn
+       {
+        margin: 10px 5px;
+        width: 180px;
+        height: 50px;
+        color: rgb(15, 216, 32);
+        border-radius: 30px;
+        background-color: rgb(7, 6, 6);
+       }
+       .buy-btn:hover
+       {
+        width: 220px;
+       }
+       #count-value
+       {
+        font-size: 40px;
+       }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="product-container">
+            <img src="product.PNG" class="product-img">
+            <h2>M2 MacBook Pro </h2>
+            <h3> Price : ₹162990</h3>
+            <div class="product-counter">
+                <img src="plus.PNG" class="count-img" onclick="QuantityHandler(`inc`)">
+                <span id="count-value">1</span>
+                <img src="minus.PNG" class="count-img" onclick="QuantityHandler(`dec`)">
+            </div>
+            <button type="button" class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+    </div>
+    <script>
+        function QuantityHandler(action)
+        {
+             const QuantitElement = document.getElementById("count-value")
+             let Quantity = parseInt(QuantitElement.innerText);
+             if(Quantity ==1 && action== "dec")
+             {
+                        alert(`Quantity cannot be less than "1"`)
+             }
+             else if(Quantity==10 && action == "inc")
+             {
+                alert(`Quantity cannot be more than "10"`)
+
+             }
+             QuantitElement.innerText= action == "inc" ? ++Quantity : --Quantity;
+        }
+    </script>
+</body>
+</html>
